@@ -1,4 +1,3 @@
-/* General Page Styles */
 body {
     font-family: 'Roboto', sans-serif;
     background-color: #f4f6f9;
@@ -11,7 +10,6 @@ body {
     min-height: 100vh;
 }
 
-/* Container */
 .container {
     text-align: center;
     background-color: #ffffff;
@@ -23,20 +21,17 @@ body {
     width: 90%;
 }
 
-/* Headings */
 h1, h2, h3 {
     color: #007bff;
     margin-bottom: 20px;
 }
 
-/* Paragraphs */
 p {
     font-size: 18px;
     color: #555;
     margin-bottom: 20px;
 }
 
-/* Buttons */
 button, a.button {
     padding: 12px 24px;
     background-color: #007bff;
@@ -54,7 +49,6 @@ button:hover, a.button:hover {
     background-color: #0056b3;
 }
 
-/* Input Fields */
 input[type="text"], input[type="number"] {
     padding: 8px 12px;
     margin: 10px;
@@ -62,7 +56,6 @@ input[type="text"], input[type="number"] {
     border-radius: 4px;
 }
 
-/* Feature Sections (home.html specific) */
 .feature-section {
     display: flex;
     justify-content: space-around;
@@ -89,7 +82,6 @@ input[type="text"], input[type="number"] {
     color: #555;
 }
 
-/* CTA Section (home.html specific) */
 .cta-section {
     margin-top: 40px;
     padding: 30px;
@@ -111,7 +103,6 @@ input[type="text"], input[type="number"] {
     font-size: 18px;
 }
 
-/* QR Codes and Results (index.html specific) */
 #qrCodes img {
     margin: 10px;
     border: 1px solid #ccc;
@@ -119,7 +110,6 @@ input[type="text"], input[type="number"] {
     height: 200px;
 }
 
-/* Responsive for Mobile */
 @media (max-width: 768px) {
     h1 {
         font-size: 28px;
@@ -166,7 +156,7 @@ input[type="text"], input[type="number"] {
     margin: 0;
 }
 body {
-    padding-top: 80px; /* So that navbar doesn't overlap content */
+    padding-top: 80px; 
 }
 
 
