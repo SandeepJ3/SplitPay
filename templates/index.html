@@ -68,12 +68,11 @@
             .then(data => {
                 document.getElementById("result").innerText = data.result;
             
-                // NEW: Update Total and Per Person Share
                 document.getElementById("totalExpense").innerText = data.total.toFixed(2);
                 document.getElementById("perPersonShare").innerText = data.per_person.toFixed(2);
             
                 let qrDiv = document.getElementById("qrCodes");
-                qrDiv.innerHTML = ""; // Clear previous QR codes
+                qrDiv.innerHTML = ""; 
             
                 data.qr_codes.forEach(qrUrl => {
                     let img = document.createElement("img");
