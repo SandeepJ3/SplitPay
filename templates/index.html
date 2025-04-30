@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Expense Splitter - SplitPay</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav-container">
+            <img src="{{ url_for('static', filename='logo.png') }}" alt="Logo" class="logo">
+            <h1 class="app-name">Expense Splitter</h1>
+        </div>
+    </nav>
+    <h2>Expense Splitter</h2>
+    <label>Enter number of people: </label>
+    <input type="number" id="numPeople" min="2">
+    <button onclick="addFields()">Add Fields</button>
+
+    <div id="inputFields"></div>
+    <button onclick="calculateExpenses()">Calculate</button>
+
+    <h3>Result</h3>
+    <p id="result"></p>
+    <p><strong>Total Expense:</strong> ₹<span id="totalExpense"></span></p>
+    <p><strong>Per Person Share:</strong> ₹<span id="perPersonShare"></span></p>
+    <h3>QR Codes</h3>
+    <div id="qrCodes"></div>
+
+    <script>
+        function addFields() {
+            let numPeople = document.getElementById("numPeople").value;
+            let container = document.getElementById("inputFields");
+            container.innerHTML = "";
+
+            for (let i = 0; i < numPeople; i++) {
+                let nameInput = `<input type="text" placeholder="Name" id="name${i}">`;
+                let amountInput = `<input type="number" placeholder="Amount" id="amount${i}">`;
+                let upiInput = `<input type="text" placeholder="UPI ID" id="upi${i}">`;
+                container.innerHTML += nameInput + amountInput + upiInput + "<br>";
+            }
+        }
+
+        function calculateExpenses() {
+            let numPeople = document.getElementById("numPeople").value;
+            let entries = [];
+
+            for (let i = 0; i < numPeople; i++) {
+                let name = document.getElementById(`name${i}`).value;
+                let amount = parseFloat(document.getElementById(`amount${i}`).value);
+                let upi = document.getElementById(`upi${i}`).value;
+
+                if (!name || isNaN(amount) || !upi) {
+                    alert("Please fill all fields correctly.");
+                    return;
+                }
+
+                entries.push({ name, amount, upi_id: upi });
+            }
+
+            fetch("http://127.0.0.1:5000/calculate", {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify({ entries })
+            })
+            .then(response => response.json())
+            .then(data => {
+                document.getElementById("result").innerText = data.result;
+            
+                // NEW: Update Total and Per Person Share
+                document.getElementById("totalExpense").innerText = data.total.toFixed(2);
+                document.getElementById("perPersonShare").innerText = data.per_person.toFixed(2);
+            
+                let qrDiv = document.getElementById("qrCodes");
+                qrDiv.innerHTML = ""; // Clear previous QR codes
+            
+                data.qr_codes.forEach(qrUrl => {
+                    let img = document.createElement("img");
+                    img.src = "http://127.0.0.1:5000" + qrUrl;
+                    img.width = 200;
+                    img.height = 200;
+                    img.onerror = function() {
+                        console.error("Error loading QR code: " + qrUrl);
+                    };
+                    qrDiv.appendChild(img);
+                });
+            })            
+        }
+    </script>
+</body>
+</html>

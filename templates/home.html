@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Welcome to SplitPay</title>
+        <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    </head>
+    <body>
+        <nav class="navbar">
+            <div class="nav-container">
+                <img src="{{ url_for('static', filename='logo.png') }}" alt="Logo" class="logo">
+                <h1 class="app-name">Expense Splitter</h1>
+            </div>
+        </nav>
+        <div class="container">
+            <h1>Welcome to SplitPay!</h1>
+            <p>Split your expenses with friends, family, or coworkers and generate UPI QR codes for easy, fast transactions. No more awkward calculations – let SplitPay handle the math!</p>
+            
+            <div class="feature-section">
+                <div class="feature-box">
+                    <h3>Easy Expense Splitting</h3>
+                    <p>Just enter your expenses and SplitPay will calculate how much each person owes or is owed. No more confusion, just a simple solution!</p>
+                </div>
+                <div class="feature-box">
+                    <h3>Instant UPI QR Codes</h3>
+                    <p>Generate UPI QR codes for seamless payments. No need to type UPI IDs, just scan and pay. It’s that easy!</p>
+                </div>
+                <div class="feature-box">
+                    <h3>Transparent and Fair</h3>
+                    <p>SplitPay ensures everyone pays their fair share. You’ll see the exact balance for each participant in every expense group.</p>
+                </div>
+            </div>
+
+            <div class="cta-section">
+                <h2>Start Splitting Expenses Today!</h2>
+                <button  onclick="location.href='/expense_splitter';">
+                    Start Splitting Expenses
+                </button>
+            </div>
+        </div>
+    </body>
+</html>

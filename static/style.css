@@ -1,0 +1,172 @@
+/* General Page Styles */
+body {
+    font-family: 'Roboto', sans-serif;
+    background-color: #f4f6f9;
+    margin: 0;
+    padding: 0;
+    color: #333;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-height: 100vh;
+}
+
+/* Container */
+.container {
+    text-align: center;
+    background-color: #ffffff;
+    padding: 40px;
+    margin-top: 40px;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    max-width: 800px;
+    width: 90%;
+}
+
+/* Headings */
+h1, h2, h3 {
+    color: #007bff;
+    margin-bottom: 20px;
+}
+
+/* Paragraphs */
+p {
+    font-size: 18px;
+    color: #555;
+    margin-bottom: 20px;
+}
+
+/* Buttons */
+button, a.button {
+    padding: 12px 24px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    text-decoration: none;
+    border-radius: 4px;
+    font-size: 18px;
+    font-weight: 500;
+    cursor: pointer;
+    margin: 10px 0;
+}
+
+button:hover, a.button:hover {
+    background-color: #0056b3;
+}
+
+/* Input Fields */
+input[type="text"], input[type="number"] {
+    padding: 8px 12px;
+    margin: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+/* Feature Sections (home.html specific) */
+.feature-section {
+    display: flex;
+    justify-content: space-around;
+    margin-top: 40px;
+    flex-wrap: wrap;
+    text-align: left;
+}
+
+.feature-box {
+    background-color: #f8f9fa;
+    padding: 20px;
+    border-radius: 8px;
+    width: 250px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    margin: 10px;
+}
+
+.feature-box h3 {
+    color: #007bff;
+    margin-bottom: 10px;
+}
+
+.feature-box p {
+    color: #555;
+}
+
+/* CTA Section (home.html specific) */
+.cta-section {
+    margin-top: 40px;
+    padding: 30px;
+    color: white;
+    padding: 12px 24px;
+    text-decoration: none;
+    border-radius: 8px;
+    display: inline-block;
+    font-weight: bold;
+    transition: background-color 0.3s;
+}
+
+.cta-section h2 {
+    margin-bottom: 20px;
+    font-size: 28px;
+}
+
+.cta-section p {
+    font-size: 18px;
+}
+
+/* QR Codes and Results (index.html specific) */
+#qrCodes img {
+    margin: 10px;
+    border: 1px solid #ccc;
+    width: 200px;
+    height: 200px;
+}
+
+/* Responsive for Mobile */
+@media (max-width: 768px) {
+    h1 {
+        font-size: 28px;
+    }
+    p, a.button {
+        font-size: 16px;
+    }
+    .feature-section {
+        flex-direction: column;
+        align-items: center;
+    }
+    .feature-box {
+        width: 80%;
+        margin-bottom: 20px;
+    }
+}
+.navbar {
+    width: 100%;
+    background-color: #007bff;
+    padding: 10px 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+.nav-container {
+    display: flex;
+    align-items: center;
+    max-width: 1200px;
+    width: 100%;
+}
+.logo {
+    height: 40px;
+    margin-right: 15px;
+}
+.app-name {
+    color: white;
+    font-size: 24px;
+    font-weight: bold;
+    margin: 0;
+}
+body {
+    padding-top: 80px; /* So that navbar doesn't overlap content */
+}
+
+
